@@ -1,7 +1,7 @@
-package Objects;
+package org.example.Objects;
 
 public class Terminal {
-    private Bank bank;
+    private final Bank bank;
 
     public Terminal(Bank bank) {
         this.bank = bank;
