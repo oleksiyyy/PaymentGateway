@@ -5,12 +5,12 @@ import java.time.LocalDate;
 public class Transaction {
     private final Integer amount;
     private final LocalDate date;
-    private final String subscriberId;
+    private final String clientId;
 
-    public Transaction(Integer amount, LocalDate date, String subscriberId) {
+    public Transaction(Integer amount, LocalDate date, String clientId) {
         this.amount = amount;
         this.date = date;
-        this.subscriberId = subscriberId;
+        this.clientId = clientId;
     }
 
     public Integer getAmount() {
@@ -21,7 +21,7 @@ public class Transaction {
         return date;
     }
 
-    public String getSubscriberId() {
-        return subscriberId;
+    public String getClientId() {
+        return clientId;
     }
 }

@@ -2,18 +2,17 @@ package org.example;
 
 import org.example.Objects.Bank;
 import org.example.Objects.PaymentProcessor;
-import org.example.Objects.Subscriber;
+import org.example.Objects.Client;
 import org.example.Objects.Terminal;
-import org.example.Objects.Transaction;
 import java.time.LocalDate;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Subscriber subscriber1 = new Subscriber("1", "Alice");
-        Subscriber subscriber2 = new Subscriber("2", "Bob");
+        Client client1 = new Client("1", "Alice");
+        Client client2 = new Client("2", "Bob");
 
-        Bank bank = new Bank(Arrays.asList(subscriber1, subscriber2));
+        Bank bank = new Bank(Arrays.asList(client1, client2));
 
         Terminal terminal = new Terminal(bank);
         PaymentProcessor processor = new PaymentProcessor();
@@ -25,13 +24,11 @@ public class Main {
         processor.processPurchase(terminal, 73, "1");
         processor.processSale(terminal, 60, "2");
 
-        System.out.println("Transactions for subscriber 1:");
-        bank.getTransactionsBySubscriberId("1").forEach(transaction -> System.out.println(transaction.getAmount()));
+        bank.printTransactionsByClientId("1");
 
-        System.out.println("Transactions on current date:");
-        bank.getTransactionsByDate(LocalDate.now()).forEach(transaction -> System.out.println(transaction.getAmount()));
+        bank.printTransactionsByDate(LocalDate.now());
 
-        System.out.println("Total purchase amount: " + bank.getTotalPurchaseAmount());
-        System.out.println("Total sale amount: " + bank.getTotalSaleAmount());
+        System.out.println("Total Purchase Amount: " + bank.getTotalPurchaseAmount());
+        System.out.println("Total Sale Amount: " + bank.getTotalSaleAmount());
     }
 }
