@@ -24,11 +24,24 @@ public class Main {
         processor.processPurchase(terminal, 73, "1");
         processor.processSale(terminal, 60, "2");
 
+        System.out.println("_______________________________________________________________________________________");
+
         bank.printTransactionsByClientId("1");
+
+        System.out.println("_______________________________________________________________________________________");
+
+        bank.printTransactionsByClientId("2");
+
+        System.out.println("_______________________________________________________________________________________");
 
         bank.printTransactionsByDate(LocalDate.now());
 
+        System.out.println("_______________________________________________________________________________________");
+
         System.out.println("Total Purchase Amount: " + bank.getTotalPurchaseAmount());
+
+        System.out.println("_______________________________________________________________________________________");
+
         System.out.println("Total Sale Amount: " + bank.getTotalSaleAmount());
     }
 }
